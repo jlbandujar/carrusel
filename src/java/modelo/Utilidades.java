@@ -29,7 +29,8 @@ public class Utilidades {
                         for (int x=0;x<ficheros.length;x++){
                             if ( ficheros[x].endsWith(".jpg") || ficheros[x].endsWith(".png") ||
                                     ficheros[x].endsWith(".gif") ){
-                                archivos.add(ficheros[x]);
+                                String fichero="carrusel"+File.separator+ficheros[x];
+                                archivos.add(fichero);
                             }
                         }
                 }

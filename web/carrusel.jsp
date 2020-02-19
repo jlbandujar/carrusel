@@ -4,6 +4,7 @@
     Author     : Usuario1
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,15 +22,16 @@
     <h1>Nuestras imágenes</h1>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="http://img2.rtve.es/v/5415558?w=1600&preview=1571474159995.png" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="http://img2.rtve.es/v/5415558?w=1600&preview=1571474159995.png" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="http://img2.rtve.es/v/5415558?w=1600&preview=1571474159995.png" class="d-block w-100" alt="...">
-    </div>
+      <% ArrayList<String> imagenes = 
+              ( ArrayList<String> ) request.getAttribute("imagenes");
+      for ( int i=0; i<imagenes.size(); i++){
+          String cadenaActive ="";
+          if ( i==0 ) { cadenaActive=" active"; }
+      %>
+      <div class="carousel-item <%=cadenaActive%>">
+          <img src="<%=imagenes.get(i)%>" class="d-block w-100" alt="...">
+      </div>
+      <%} %>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
